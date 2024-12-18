@@ -1,0 +1,12 @@
+# Ignore the database file
+instance/posts.db
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+
+# Ignore environment configuration files
+.env
+
+# Ignore log files
+*.log
