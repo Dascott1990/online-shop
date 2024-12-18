@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>{{ product.title }}</h1>
+    <p class="lead">${{ product.price }}</p>
+    <img src="{{ product.img_url }}" alt="{{ product.title }}" class="img-fluid" />
+    <p>{{ product.description }}</p>
+
+    <!-- Update the link to pass 'item_id' -->
+    <form action="{{ url_for('add_to_cart', item_id=product.id) }}" method="POST">
+              <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
+            </form>
+  </div>
+{% endblock %}

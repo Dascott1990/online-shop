@@ -1,0 +1,55 @@
+{% include "header.html" %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('../static/assets/img/post-bg.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Shop</h1>
+          <span class="subheading">Find something you love!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Shop Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h2 class="section-heading">Shop</h2>
+
+      <!-- Product Previews-->
+      {% for product in all_products %}
+      <div class="product-preview mb-4">
+        <div class="d-flex align-items-center">
+          <img
+            src="{{ product.img_url }}"
+            alt="{{ product.title }}"
+            style="max-width: 200px; max-height: 200px; margin-right: 15px;"
+            class="img-thumbnail"
+          />
+          <div>
+            <a href="{{ url_for('show_product', product_id=product.id) }}">
+              <h2 class="product-title">{{ product.title }}</h2>
+              <h3 class="product-price">${{ product.price }}</h3>
+            </a>
+            <form action="{{ url_for('add_to_cart', item_id=product.id) }}" method="POST">
+        <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
+      </form>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" />
+      {% endfor %}
+
+      <!-- Back to Blog -->
+      <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-secondary" href="{{ url_for('get_all_posts') }}">Back to Blog</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}

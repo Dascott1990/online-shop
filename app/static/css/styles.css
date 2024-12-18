@@ -1,0 +1,496 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font: Apple System Fonts */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Header Styling */
+header.masthead {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: #fff;
+  padding: 120px 0;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+header.masthead .site-heading h1,
+header.masthead .page-heading h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+header.masthead .subheading {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Post Preview Container */
+.post-preview {
+  background-color: #fff;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.post-preview:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.post-preview h2.post-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.post-preview h3.post-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.post-preview p.post-meta {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.post-preview p.post-meta a {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.post-preview p.post-meta a:hover {
+  color: #0056b3;
+}
+
+/* Box Shadows for Main Sections */
+main.mb-4 .container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+main .form-control {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+main .form-control:focus {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+/* Divider */
+hr.my-4 {
+  border: none;
+  height: 1px;
+  background-color: #e1e1e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Footer */
+footer {
+  background-color: #1c1e21; /* Dark background */
+  color: #d1d1d1; /* Subtle text color */
+  padding: 2rem 0; /* Add vertical spacing */
+  text-align: center; /* Center align text */
+  border-top: 1px solid #444; /* Subtle border at the top */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow above footer */
+}
+
+/* Social Icons */
+footer .fa-stack {
+  display: inline-block;
+  margin: 0 0.75rem; /* Space between icons */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .fa-circle {
+  color: #444; /* Dark circle background */
+}
+
+footer .fa-inverse {
+  color: #d1d1d1; /* Icon color */
+}
+
+footer a:hover .fa-circle {
+  color: #007bff; /* Highlight circle on hover */
+}
+
+footer a:hover .fa-inverse {
+  color: #fff; /* Icon color changes to white on hover */
+}
+
+footer .fa-stack:hover {
+  transform: translateY(-3px); /* Icon lift effect */
+}
+
+/* Copyright Text */
+footer .small {
+  font-size: 0.85rem; /* Small but legible */
+  margin-top: 1rem; /* Space above copyright */
+  color: #777; /* Muted text color */
+}
+
+footer .small:hover {
+  color: #d1d1d1; /* Brighten on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  footer .fa-stack {
+    margin: 0 0.5rem; /* Reduce icon spacing */
+  }
+
+  footer .small {
+    font-size: 0.75rem; /* Adjust text size */
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header.masthead .site-heading h1,
+  header.masthead .page-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .post-preview {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  main.mb-4 .container {
+    padding: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Flash Message Container */
+.flash {
+  background-color: #e2f3ff; /* Light blue for info */
+  color: #004085; /* Dark blue text for contrast */
+  border: 1px solid #b8daff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.flash.error {
+  background-color: #f8d7da; /* Light red */
+  color: #721c24; /* Dark red text */
+  border: 1px solid #f5c6cb;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.flash.success {
+  background-color: #d4edda; /* Light green */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.flash.warning {
+  background-color: #fff3cd; /* Light yellow */
+  color: #856404; /* Dark yellow text */
+  border: 1px solid #ffeeba;
+  box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
+}
+
+.flash:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive Flash Adjustment */
+@media (max-width: 768px) {
+  .flash {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Comment Section Container */
+.comment {
+  margin-top: 2rem;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.comment:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Comment List */
+.commentList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual Comment Item */
+.commentList li {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.commentList li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment Author Profile Image */
+.commenterImage img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-right: 1rem;
+  object-fit: cover;
+}
+
+/* Comment Text Content */
+.commentText {
+  flex: 1;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.commentText span.sub-text {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #777;
+  font-weight: 500;
+}
+
+/* Comment Form Area */
+.comment-form {
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.comment-form:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.comment-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.comment-form .form-control:focus {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  border-color: #007bff;
+}
+
+/* Submit Button */
+.comment-form .btn {
+  margin-top: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.comment-form .btn:hover {
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .commentList li {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .commenterImage img {
+    margin-bottom: 1rem;
+  }
+}
+
+
+/* Layout Adjustments */
+.container-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.ecommerce-container {
+  width: 20%; /* Adjust as needed */
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: calc(100vh - 120px); /* Keeps container scrollable */
+}
+
+.blog-post-container {
+  width: 60%; /* Adjust as needed */
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: calc(100vh - 120px); /* Keeps container scrollable */
+}
+
+/* Adjust for responsiveness */
+@media (max-width: 992px) {
+  .container-wrapper {
+    flex-direction: column;
+  }
+
+  .ecommerce-container,
+  .blog-post-container {
+    width: 100%;
+  }
+
+  .ecommerce-container {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Style for Product Preview */
+.product-preview {
+  background-color: #fff;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-preview:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.product-preview h2.product-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-preview p.product-description {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+

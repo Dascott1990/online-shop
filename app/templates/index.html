@@ -1,0 +1,103 @@
+{% include "header.html" %}
+
+<!-- Page Header-->
+<header
+  class="masthead"
+  style="background-image: url('../static/assets/img/home-bg.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Dask's Shop</h1>
+          <span class="subheading">A collection of random musings.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Blog Post Previews-->
+      {% for post in all_posts %}
+      <div class="post-preview">
+        <a href="{{ url_for('show_post', post_id=post.id) }}">
+          <h2 class="post-title">{{ post.title }}</h2>
+          <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+        </a>
+        <p class="post-meta">
+          Posted by
+          <a href="#">{{ post.author.name }}</a>
+          on {{ post.date }}
+          {% if current_user.is_authenticated and current_user.id == 1 %}
+          <a href="{{ url_for('delete_post', post_id=post.id) }}" class="text-danger ms-2">✘</a>
+          {% endif %}
+        </p>
+      </div>
+      <hr class="my-4" />
+      {% endfor %}
+
+      <!-- New Post Button (Admin)-->
+      {% if current_user.is_authenticated and current_user.id == 1 %}
+      <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-primary" href="{{ url_for('add_new_post') }}">Create New Post</a>
+      </div>
+      {% endif %}
+
+      <!-- Pager-->
+      <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-secondary text-uppercase" href="#!">Older Posts →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- E-Commerce Section-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h2 class="section-heading">Shop</h2>
+      <!-- Product Previews-->
+      {% for product in all_products %}
+      <div class="product-preview mb-4">
+        <div class="d-flex align-items-center">
+          <img
+            src="{{ product.img_url }}"
+            alt="{{ product.title }}"
+            style="max-width: 200px; max-height: 200px; margin-right: 15px;"
+            class="img-thumbnail"
+          />
+          <div>
+            <a href="{{ url_for('show_product', product_id=product.id) }}">
+              <h2 class="product-title">{{ product.title }}</h2>
+              <h3 class="product-price">${{ product.price }}</h3>
+            </a>
+            <!-- Add to Cart Button wrapped in a form -->
+            <form action="{{ url_for('add_to_cart', item_id=product.id) }}" method="POST">
+              <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" />
+      {% endfor %}
+
+      <!-- View Cart Button-->
+      <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-success text-uppercase" href="{{ url_for('view_cart') }}">View Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Product in Navigation (Admin)-->
+{% if current_user.is_authenticated and current_user.id == 1 %}
+<li class="nav-item">
+  <a class="nav-link" href="{{ url_for('add_new_product') }}">Add Product</a>
+</li>
+{% endif %}
+
+{% include "footer.html" %}
