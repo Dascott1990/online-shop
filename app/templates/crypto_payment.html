@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Complete Your Crypto Payment</h1>
+    <p>Send exactly <strong>{{ payment_info['amount_btc'] }}</strong> BTC to the following address:</p>
+    <p><strong>{{ payment_info['payment_address'] }}</strong></p>
+    <p>After making the payment, please wait for confirmation.</p>
+</div>
+{% endblock %}

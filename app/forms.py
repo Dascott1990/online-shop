@@ -34,3 +34,8 @@ class CreateECommerceForm(FlaskForm):
     price = FloatField("Price (USD)", validators=[DataRequired()])
     img_url = StringField("Product Image URL", validators=[DataRequired(), URL()])
     submit = SubmitField("Submit Product")
+
+
+class VerificationForm(FlaskForm):
+    verification_code = StringField("Verification Code", validators=[DataRequired()])
+    submit = SubmitField("Verify")

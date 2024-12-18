@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Complete your payment</h1>
+    <div id="payment-message"></div>
+    <button id="pay-button">Pay</button>
+
+    <script>
+        const stripe = Stripe("{{ os.getenv('STRIPE_PUBLISHABLE_KEY') }}");
+        const clientSecret = "{{ client_secret }}";
+
+        document.getElementById('pay-button').addEventListener('click', () => {
+            stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: {
+                        // Pre-built Stripe Elements can be integrated here
+                    }
+                }
+            }).then((result) => {
+                if (result.error) {
+                    document.getElementById('payment-message').textContent = result.error.message;
+                } else {
+                    window.location.href = "/payment-success";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
