@@ -232,8 +232,11 @@ def shop():
     return render_template("shop.html", all_products=items, current_user=current_user)
 
 @app.route('/cart', methods=["GET", "POST"])
-@login_required
 def view_cart():
+    if not current_user.is_authenticated:
+        flash("You need to log in first!")
+        return redirect(url_for('login'))  # Redirect to login if not authenticated
+
     cart_items = db.session.execute(
         db.select(Cart).where(Cart.user_id == current_user.id)
     ).scalars().all()
@@ -241,8 +244,11 @@ def view_cart():
     return render_template("cart.html", cart_items=cart_items, total_price=total_price, current_user=current_user)
 
 @app.route('/add-to-cart/<int:item_id>', methods=["POST"])
-@login_required
 def add_to_cart(item_id):
+    if not current_user.is_authenticated:
+        flash("You need to log in first!")
+        return redirect(url_for('login'))  # Redirect to login page if not authenticated
+
     cart_item = db.session.execute(
         db.select(Cart).where(Cart.user_id == current_user.id, Cart.item_id == item_id)
     ).scalar()
@@ -315,11 +321,13 @@ def crypto_checkout():
         for item in db.session.query(Cart).filter_by(user_id=current_user.id).all()
     ]
 
-    crypto_payment = create_crypto_payment(cart_items, user_wallet_address="user_wallet_address_here")
+    # Remove user_wallet_address from the function call
+    crypto_payment = create_crypto_payment(cart_items)
     if crypto_payment:
         return render_template("crypto_payment.html", payment_info=crypto_payment)
     flash("Failed to generate crypto payment.")
     return redirect(url_for('view_cart'))
+
 
 @app.route('/payment-success')
 def payment_success():
